@@ -3,12 +3,11 @@ import Order from '../models/Order';
 class OrderController {
   async select(request, response) {
     try {
-      const orders = Order.findAll();
+      const orders = await Order.findAll();
 
       return response.json({ orders });
     } catch (error) {
-      console.log(error);
-      return response.json({ error });
+      return response.json({ error: error.message });
     }
   }
 }

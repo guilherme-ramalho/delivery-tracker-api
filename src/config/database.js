@@ -4,4 +4,7 @@ module.exports = {
   username: 'root',
   password: 'google94',
   database: 'delivery_tracker',
+  define: {
+    freezeTableName: true,
+  },
 };

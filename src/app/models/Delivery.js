@@ -1,7 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
 class Delivery extends Model {
-  static init(connection) {
+  static init(sequelize) {
     super.init(
       {
         id: {
@@ -31,9 +31,13 @@ class Delivery extends Model {
         updatedAt: Sequelize.DATE,
       },
       {
-        connection,
+        sequelize,
       }
     );
+
+    this.tableName = 'delivery';
+
+    return this;
   }
 
   static associate(models) {
