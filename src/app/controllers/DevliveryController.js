@@ -2,21 +2,29 @@ import Delivery from '../models/Delivery';
 
 class DeliveryController {
   async select(request, response) {
-    return response.json({ teste: 'teste' });
-  }
+    const deliveries = await Delivery.findAll();
 
-  async create(request, response) {
-    try {
-      const delivery = await Delivery.create(request.body);
-
-      return response.json({ delivery });
-    } catch (error) {
-      return response.json({ error: error.message });
-    }
+    return response.json({ deliveries });
   }
 
   async update(request, response) {
-    return response.json({ teste: 'teste' });
+    try {
+      const { id } = request.body;
+
+      const delivery = await Delivery.findByPk(id);
+
+      const updated = await delivery.update({
+        ...delivery,
+        ...request.body,
+      });
+
+      if (updated) {
+        return response.json({ delivery: updated });
+      }
+      return response.json({ error: 'Couldnt update delivery' });
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
   }
 }
 

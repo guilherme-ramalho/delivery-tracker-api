@@ -31,6 +31,7 @@ class OrderController {
         include: [
           {
             model: Delivery,
+            as: 'delivery',
           },
         ],
       });

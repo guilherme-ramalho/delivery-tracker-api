@@ -29,6 +29,7 @@ class Order extends Model {
 
   static associate(models) {
     this.hasOne(models.Delivery, {
+      foreignKey: 'orderId',
       as: 'delivery',
     });
   }

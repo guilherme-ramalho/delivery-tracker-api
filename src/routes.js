@@ -9,7 +9,6 @@ routes.get('/order', OrderController.select);
 routes.post('/order', OrderController.create);
 
 routes.get('/delivery', DeliveryController.select);
-routes.post('/delivery', DeliveryController.create);
 routes.put('/delivery', DeliveryController.update);
 
 export default routes;
