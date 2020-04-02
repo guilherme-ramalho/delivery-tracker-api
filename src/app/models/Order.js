@@ -28,7 +28,9 @@ class Order extends Model {
   }
 
   static associate(models) {
-    this.hasOne(models.Delivery);
+    this.hasOne(models.Delivery, {
+      as: 'delivery',
+    });
   }
 }
 

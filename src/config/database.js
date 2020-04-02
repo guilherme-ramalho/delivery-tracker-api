@@ -6,5 +6,6 @@ module.exports = {
   database: 'delivery_tracker',
   define: {
     freezeTableName: true,
+    timestamps: true,
   },
 };
