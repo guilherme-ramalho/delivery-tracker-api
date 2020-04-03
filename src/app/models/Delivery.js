@@ -15,11 +15,23 @@ class Delivery extends Model {
           allowNull: false,
           defaultValue: false,
         },
-        lat: {
+        address: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        startLat: {
           type: Sequelize.DECIMAL(11, 8),
           allowNull: false,
         },
-        long: {
+        startLong: {
+          type: Sequelize.DECIMAL(11, 8),
+          allowNull: false,
+        },
+        deliveryLat: {
+          type: Sequelize.DECIMAL(11, 8),
+          allowNull: false,
+        },
+        deliveryLong: {
           type: Sequelize.DECIMAL(11, 8),
           allowNull: false,
         },

@@ -4,15 +4,25 @@ import Delivery from '../models/Delivery';
 class OrderController {
   async create(request, response) {
     try {
-      const { description, lat, long } = request.body;
+      const {
+        description,
+        address,
+        startLat,
+        startLong,
+        deliveryLat,
+        deliveryLong,
+      } = request.body;
 
       const order = await Order.create({
         description,
       });
 
       const delivery = await Delivery.create({
-        lat,
-        long,
+        address,
+        startLat,
+        startLong,
+        deliveryLat,
+        deliveryLong,
         orderId: order.id,
       });
 
